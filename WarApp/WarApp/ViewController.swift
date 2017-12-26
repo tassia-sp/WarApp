@@ -18,6 +18,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var rightScoreLabel: UILabel!
     
+    var leftScore:Int32 = 0
+    var rightScore:Int32 = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -36,6 +39,18 @@ class ViewController: UIViewController {
         //print("right random number is: \(rightRandomNumber)")
         leftImageView.image = UIImage(named: "card\(leftRandomNumber)")
         rightImageView.image = UIImage(named: "card\(rightRandomNumber)")
+        
+        if leftRandomNumber > rightRandomNumber {
+            //update the score
+            leftScore += 1
+            //update the label
+            leftScoreLabel.text = String(leftScore)
+        } else if rightRandomNumber > leftRandomNumber{
+            rightScore += 1
+            rightScoreLabel.text = String(rightScore)
+        } else if leftRandomNumber == rightRandomNumber {
+            //no score changes
+        }
     }
     
     
